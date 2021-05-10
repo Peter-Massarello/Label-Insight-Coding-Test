@@ -38,7 +38,7 @@ public class ProblemOne {
         return alph;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println(getMissingLetters("A quick brown fox jumps over the lazy dog"));
         System.out.println(getMissingLetters("A slow yellow fox crawls under the proactive dog"));
         System.out.println(getMissingLetters("Lions, and tigers, and bears, oh my!"));
