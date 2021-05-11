@@ -6,9 +6,9 @@ public class ProblemTwo {
     // Particle Class used to hold data for each particle
     public static class Particle {
 
-        private char direction; // Direction particle is moving, either 'L' or 'R'
-        private int speed, position; // Speed and initial position variables given in the object construction
-        private boolean exited; // If the Particle has exceeded the bounds of the array aka 'exited'
+        private final char direction; // Direction particle is moving, either 'L' or 'R'
+        private final int speed;
+        private int position; // Speed and initial position variables given in the object construction
 
         // Constructor which gives the particle its direction, speed, and position
         public Particle(char direction, int speed, int position) {
@@ -27,8 +27,8 @@ public class ProblemTwo {
 
         // Checks to see if particle has moved outside of the bounds of the array, if so return true
         public boolean positionCheck(int ceiling) {
-            exited = (this.position > ceiling || this.position < 0);
-            return exited;
+            // If the Particle has exceeded the bounds of the array aka 'exited'
+            return (this.position >= ceiling || this.position < 0);
         }
 
         // Gets position variable for checking purposes
@@ -85,10 +85,12 @@ public class ProblemTwo {
         List<Particle> pArray = new ArrayList<Particle>();
         List<String> finalAnimation = new ArrayList<String>();
         char[] charArray = init.toCharArray();
+        boolean foundParticle = false;
         int index;
 
         for (char c: charArray) {
             if (c == 'R' || c == 'L') {
+                foundParticle = true;
                 index = new String(charArray).indexOf(c); // Converts character place into an index
                 pArray.add(new Particle(c, speed, index));
                 charArray[index] = 'X'; // Sets found 'L' or 'R' index to X so that program wont get stuck on same char
@@ -96,8 +98,9 @@ public class ProblemTwo {
         }
 
         finalAnimation.add(printParticles(init.length(), pArray));
-        //System.out.println(printParticles(init.length(), pArray));
-        // ^ Above line used for debugging purposes
+
+        if (!foundParticle)
+            return finalAnimation;
 
         while(true) {
             for (int i = pArray.size() - 1; i >= 0; i--) {
@@ -107,13 +110,12 @@ public class ProblemTwo {
                 }
             }
 
+            finalAnimation.add(printParticles(init.length(), pArray));
+
             if (pArray.isEmpty()){
                 break;
             }
 
-            finalAnimation.add(printParticles(init.length(), pArray));
-            //System.out.println(printParticles(init.length(), pArray));
-            // ^ Above line used for debugging purposes
         }
 
         return finalAnimation;
@@ -121,47 +123,16 @@ public class ProblemTwo {
 
     // Main function
     public static void main(String[] args) {
-        long startTime = System.nanoTime();
         System.out.println(animate(3, "RR..LRL"));
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
 
-        startTime = System.nanoTime();
         System.out.println(animate(2, "..R...."));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
 
-        startTime = System.nanoTime();
         System.out.println(animate(2, "LRLR.LRLR"));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
 
-        startTime = System.nanoTime();
         System.out.println(animate(10, "RLRLRLRLRL"));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
 
-        startTime = System.nanoTime();
         System.out.println(animate(1, "..."));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
 
-        startTime = System.nanoTime();
         System.out.println(animate(1, "LRRL.LR.LRR.R.LRRL."));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
-
-        startTime = System.nanoTime();
-        System.out.println(animate(1, "LRRL.LR.LRR.R.LRRL.LRRL.LR.LRR.R.LRRL.LRRL.LR.LRR.R.LRRL."));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Duration to complete - " + duration);
-
     }
 }
