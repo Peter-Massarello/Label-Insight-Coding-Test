@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemTwo {
-
     // Particle Class used to hold data for each particle
     public static class Particle {
 
@@ -37,7 +36,6 @@ public class ProblemTwo {
         }
 
     }
-
     /*  Printing Method
         - Method takes in List of particles and the ceiling of the original String.
         - Iterates through going from 0 to the ceiling and for each Particle
@@ -67,7 +65,6 @@ public class ProblemTwo {
 
        return outputLine.toString();
     }
-
     /* Animate Function
         - Creates two lists, one to hold all particles and one to hold all animation Strings.
         - Creates a char array of the init String to better loop through.
@@ -123,9 +120,9 @@ public class ProblemTwo {
 
     // Main function
     public static void main(String[] args) {
-        System.out.println(animate(3, "RR..LRL"));
-
         System.out.println(animate(2, "..R...."));
+
+        System.out.println(animate(3, "RR..LRL"));
 
         System.out.println(animate(2, "LRLR.LRLR"));
 

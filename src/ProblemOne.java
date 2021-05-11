@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 public class ProblemOne {
-
     /* Getting Letters Method
         - Declares three variables, a boolean to check if current character is a valid char, an array of booleans
           that will hold an index of every checked alphabet character so repeat checks will be eliminated, and a
