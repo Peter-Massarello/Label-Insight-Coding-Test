@@ -95,6 +95,8 @@ public class ProblemTwo {
         }
 
         finalAnimation.add(printParticles(init.length(), pArray));
+        //System.out.println(printParticles(init.length(), pArray));
+        // ^For better display of what the array looks like uncomment this line of code^
 
         if (!foundParticle)
             return finalAnimation;
@@ -108,6 +110,8 @@ public class ProblemTwo {
             }
 
             finalAnimation.add(printParticles(init.length(), pArray));
+            //System.out.println(printParticles(init.length(), pArray));
+            // ^For better display of what the array looks like uncomment this line of code^
 
             if (pArray.isEmpty())
                 break;
