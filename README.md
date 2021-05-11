@@ -39,3 +39,13 @@ Again, imagine that the method you write will be called thousands of times for v
 initial conditions with size ranging from 0 to 50, and also imagine the case when init is
 several hundred thousand locations in size (though with speed > size / 20 or so).  Try to
 handle both of these cases efficiently in your implementation.
+
+----------------------------------------------------
+One assumption I made was that I had my 'animate()' method return an arraylist of strings instead
+of an array of strings. I did this because of the way I already had my program structured. It was
+simpler for me to use an array list where I can easily keep adding elements to it during runtime
+instead of dealing with a normal array. I emailed asking if this was an okay assumption to make but
+I didn't receive a response back and as I have finals coming up, I didn't want to wait and forget to
+submit on time. I hope this wasn't out of bounds to think.
+
+Thank you.
