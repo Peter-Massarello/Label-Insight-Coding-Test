@@ -109,12 +109,9 @@ public class ProblemTwo {
 
             finalAnimation.add(printParticles(init.length(), pArray));
 
-            if (pArray.isEmpty()){
+            if (pArray.isEmpty())
                 break;
-            }
-
         }
-
         return finalAnimation;
     }
 
