@@ -9,6 +9,7 @@ public class ProblemOne {
         - Sets new input String to char array for ease of looping
         - Iterates through char array and if an alpha char is found AND the char is not part of the checked
           boolean array then remove that char from the final string, since that letter has been found
+        - Mark the index of the newly found letter as true so that if found again, program will skip past, saving time.
         - If the length of the 'alph' String reaches 0, break out of loop and return String. This is used for
           early terminations where the input string is very long, but midway through the entire alphabet has been found
      */
